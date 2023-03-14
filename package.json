@@ -26,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/Mateo-Wallace/Rpg-Dice-Js/issues"
   },
-  "homepage": "https://github.com/Mateo-Wallace/Rpg-Dice-Js#readme"
+  "homepage": "https://github.com/Mateo-Wallace/Rpg-Dice-Js#readme",
+  "dependencies": {
+    "mathjs": "^11.6.0"
+  }
 }

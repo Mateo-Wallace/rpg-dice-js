@@ -25,13 +25,14 @@ const diceRoller = ({ userInput, settings }) => {
     });
   }
 
-  var total, sumTotal;
+  var total, sumTotal, critTotal;
   try {
     // if no input, rolls 1d20
     if (messageWords.length === 0) {
       const sum = Math.floor(Math.random() * 20) + 1;
       total = `1d20 (${sum == 1 || sum == 20 ? `**${sum}**` : sum})`;
       sumTotal = `${sum}`;
+      critTotal = `${sum * 2}`;
     }
     // else if input, parse through input to run dice logic
     else {
@@ -77,10 +78,62 @@ const diceRoller = ({ userInput, settings }) => {
       });
       if (resultWords.includes("error")) {
         throw Error("Invalid Input");
-      } 
+      }
+
+      var result = [];
+      var sum = [];
+      var crit = [];
+      for (let i = 0; i < resultWords.length; i++) {
+        const boldCrit =
+          resultWords[i] == 1 ||
+          resultWords[i] == messageWords[i].split("d")[1] / 1
+            ? `**${resultWords[i]}**`
+            : resultWords[i];
+        if (messageWords[i].includes("d") && !isNaN(resultWords[i] / 1)) {
+          sum.push(resultWords[i]);
+          crit.push(resultWords[i] * 2);
+          result.push(`${messageWords[i]} (${boldCrit})`);
+        } else if (
+          resultWords[i] == "+" ||
+          resultWords[i] == "-" ||
+          resultWords[i] == "*" ||
+          resultWords[i] == "/"
+        ) {
+          sum.push(resultWords[i]);
+          crit.push(resultWords[i]);
+          result.push(`${resultWords[i]}`);
+        } else if (!isNaN(resultWords[i] / 1)) {
+          sum.push(resultWords[i]);
+          crit.push(resultWords[i]);
+          result.push(`${boldCrit}`);
+        } else if (resultWords[i].constructor === Array) {
+          var popped = resultWords[i].pop();
+          sum.push(popped);
+          crit.push(popped * 2);
+          var arr = [];
+          for (let j = 0; j < resultWords[i].length; j++) {
+            const boldCritArr =
+              resultWords[i][j] == 1 ||
+              resultWords[i][j] == messageWords[i].split("d")[1] / 1
+                ? `**${resultWords[i][j]}**`
+                : resultWords[i][j];
+            if (j == resultWords[i].length - 1) {
+              arr.push(` ${boldCritArr}`);
+            } else if (j == 0) {
+              arr.push(`${boldCritArr}`);
+            } else {
+              arr.push(` ${boldCritArr}`);
+            }
+          }
+          result.push(`${messageWords[i]} (${arr})`);
+        }
+      }
+      total = result.join(" ");
+      sumTotal = evaluate(sum.join(" "));
+      critTotal = evaluate(crit.join(" "));
     }
   } catch (e) {
-    return { errorMessage: "Fatal", e };
+    return { errorMessage: "Fatal Error", e };
   }
 
   // sends data back to user with various options
@@ -89,7 +142,8 @@ const diceRoller = ({ userInput, settings }) => {
     inputArray: messageWords,
     total,
     // totalArray: total.split(" "),
-    sumTotal,
+    totalSum: sumTotal,
+    totalCrit: critTotal,
   };
 };
 

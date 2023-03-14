@@ -23,7 +23,7 @@ const diceRoller = ({ userInput, settings }) => {
     });
   } catch {}
 
-  return {messageWords, message};
+  return { input: message, arrayInput: messageWords };
 };
 
 module.exports = diceRoller;

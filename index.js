@@ -1,14 +1,3 @@
-const dice = () => {
-  const result = {
-    input: "",
-    arrayInput: ["", ""],
-    total: "",
-    arrayTotal: ["", ""],
-    sumTotal: "",
-    critTotal: "",
-  };
+const Dice = require("./src/Dice.js");
 
-  return result;
-};
-
-export default dice;
+module.exports = Dice;

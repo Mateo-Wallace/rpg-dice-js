@@ -1,10 +1,12 @@
 const { evaluate } = require("mathjs");
 
 class Dice {
-  constructor({ input, settings }) {
-    this.input = input;
+  constructor({ settings = { boldCrit: false } }) {
+    this.boldCrit = settings.boldCrit;
   }
-  roll() {}
+  roll() {
+    return this.boldCrit;
+  }
 }
 
 module.exports = Dice;

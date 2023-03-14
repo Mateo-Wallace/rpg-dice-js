@@ -141,7 +141,7 @@ const diceRoller = ({ userInput, settings }) => {
     input: message,
     inputArray: messageWords,
     total,
-    // totalArray: total.split(" "),
+    totalArray: total.split(/(?!\(.*)\s(?![^(]*?\))/g), //regex to split where spaces unless wrapped by parentheses
     totalSum: sumTotal,
     totalCrit: critTotal,
   };

@@ -11,7 +11,7 @@ Response:
 ```
  const response = {
     input: "",
-    arrayInput: ["", ""],
+    inputArray: ["", ""],
     total: "",
     arrayTotal: ["", ""],
     sumTotal: "",

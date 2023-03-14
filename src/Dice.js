@@ -1,11 +1,11 @@
-const { evaluate } = require("mathjs");
+const diceRoller = require("./methods/roll.js");
 
 class Dice {
-  constructor({ settings = { boldCrit: false } }) {
-    this.boldCrit = settings.boldCrit;
+  constructor(settings = { boldCrit: false }) {
+    this.settings = settings;
   }
-  roll() {
-    return this.boldCrit;
+  roll(userInput) {
+    return diceRoller({ userInput, settings: this.settings });
   }
 }
 

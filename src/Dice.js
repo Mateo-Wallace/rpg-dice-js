@@ -1,11 +1,11 @@
 const diceRoller = require("./methods/roll.js");
 
 class Dice {
-  constructor(settings = { boldCrit: false }) {
+  constructor(settings = { isBoldCrit: false }) {
     this.settings = settings;
   }
   roll(userInput) {
-    return diceRoller({ userInput, settings: this.settings });
+    return diceRoller({ userInput, isBoldCrit: this.settings.isBoldCrit });
   }
 }
 

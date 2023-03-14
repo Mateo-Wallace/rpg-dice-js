@@ -1,6 +1,6 @@
 const { evaluate } = require("mathjs");
 
-const diceRoller = ({ userInput, settings }) => {
+const diceRoller = ({ userInput, isBoldCrit }) => {
   // if input then remove all spaces, then add spaces around math operators
   var spaceNormalizer = "";
   if (userInput) {
@@ -30,9 +30,11 @@ const diceRoller = ({ userInput, settings }) => {
     // if no input, rolls 1d20
     if (messageWords.length === 0) {
       const sum = Math.floor(Math.random() * 20) + 1;
-      total = `1d20 (${sum == 1 || sum == 20 ? `**${sum}**` : sum})`;
       sumTotal = `${sum}`;
       critTotal = `${sum * 2}`;
+      total = `1d20 (${
+        isBoldCrit ? (sum == 1 || sum == 20 ? `**${sum}**` : sum) : sum
+      })`;
     }
     // else if input, parse through input to run dice logic
     else {
@@ -84,11 +86,12 @@ const diceRoller = ({ userInput, settings }) => {
       var sum = [];
       var crit = [];
       for (let i = 0; i < resultWords.length; i++) {
-        const boldCrit =
-          resultWords[i] == 1 ||
-          resultWords[i] == messageWords[i].split("d")[1] / 1
+        const boldCrit = isBoldCrit
+          ? resultWords[i] == 1 ||
+            resultWords[i] == messageWords[i].split("d")[1] / 1
             ? `**${resultWords[i]}**`
-            : resultWords[i];
+            : resultWords[i]
+          : resultWords[i];
         if (messageWords[i].includes("d") && !isNaN(resultWords[i] / 1)) {
           sum.push(resultWords[i]);
           crit.push(resultWords[i] * 2);
@@ -112,11 +115,12 @@ const diceRoller = ({ userInput, settings }) => {
           crit.push(popped * 2);
           var arr = [];
           for (let j = 0; j < resultWords[i].length; j++) {
-            const boldCritArr =
-              resultWords[i][j] == 1 ||
-              resultWords[i][j] == messageWords[i].split("d")[1] / 1
+            const boldCritArr = isBoldCrit
+              ? resultWords[i][j] == 1 ||
+                resultWords[i][j] == messageWords[i].split("d")[1] / 1
                 ? `**${resultWords[i][j]}**`
-                : resultWords[i][j];
+                : resultWords[i][j]
+              : resultWords[i][j];
             if (j == resultWords[i].length - 1) {
               arr.push(` ${boldCritArr}`);
             } else if (j == 0) {
@@ -138,6 +142,7 @@ const diceRoller = ({ userInput, settings }) => {
 
   // sends data back to user with various options
   return {
+    prefab: `Input: ${message} \nResult: ${total} \nTotal: ${sumTotal}`,
     input: message,
     inputArray: messageWords,
     total,

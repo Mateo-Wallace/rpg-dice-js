@@ -1,7 +1,7 @@
 const { evaluate } = require("mathjs");
 const { spaceNormalizer, diceNoInput, diceInputMathLogic } = require("./utils");
 
-const diceRoller = ({ userInput, isBoldCrit }) => {
+const rollMethod = ({ userInput, isBoldCrit }) => {
   // defines separators in order to parse through user input
   const separators = ["+", "-", "*", "/"];
   // defines normalized user input as message
@@ -38,12 +38,7 @@ const diceRoller = ({ userInput, isBoldCrit }) => {
           sum.push(resultWords[i]);
           crit.push(resultWords[i] * 2);
           result.push(`${messageWords[i]} (${boldCrit})`);
-        } else if (
-          resultWords[i] == "+" ||
-          resultWords[i] == "-" ||
-          resultWords[i] == "*" ||
-          resultWords[i] == "/"
-        ) {
+        } else if (separators.includes(resultWords[i])) {
           sum.push(resultWords[i]);
           crit.push(resultWords[i]);
           result.push(`${resultWords[i]}`);
@@ -94,4 +89,4 @@ const diceRoller = ({ userInput, isBoldCrit }) => {
   };
 };
 
-module.exports = diceRoller;
+module.exports = rollMethod;

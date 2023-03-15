@@ -1,8 +1,8 @@
 const Dice = require("./src/Dice.js");
-const diceRoller = require("./src/methods/roll/roll.js");
+const rollMethod = require("./src/methods/roll/roll.js");
 
 const roll = (userInput) => {
-  return diceRoller({ userInput, isBoldCrit: false });
+  return rollMethod({ userInput, isBoldCrit: false });
 };
 
 module.exports = {Dice, roll};

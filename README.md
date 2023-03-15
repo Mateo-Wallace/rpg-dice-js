@@ -7,7 +7,6 @@ Npm package that allows users to roll dice with all math and various forms of re
 isBoldCrit
 defaultDice no input
 
-
 ## Methods
 
 ### Roll
@@ -24,4 +23,3 @@ Response:
     critTotal: "",
   };
 ```
-

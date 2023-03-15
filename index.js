@@ -5,4 +5,4 @@ const roll = (userInput) => {
   return rollMethod({ userInput, isBoldCrit: false });
 };
 
-module.exports = {Dice, roll};
+module.exports = { Dice, roll };

@@ -1,4 +1,4 @@
-const diceRoller = require("./methods/roll.js");
+const diceRoller = require("./methods/roll/roll.js");
 
 class Dice {
   constructor(settings = { isBoldCrit: false }) {

@@ -1,31 +1,16 @@
 const { evaluate } = require("mathjs");
+const { spaceNormalizer } = require("./utils.js");
 
 const diceRoller = ({ userInput, isBoldCrit }) => {
-  // if input then remove all spaces, then add spaces around math operators
-  var spaceNormalizer = "";
-  if (userInput) {
-    spaceNormalizer = userInput.replaceAll(" ", "").toLowerCase();
-    var separators = ["+", "-", "*", "/"];
-
-    for (var i = 0; i < separators.length; i++) {
-      var rg = new RegExp("\\" + separators[i], "g");
-      spaceNormalizer = spaceNormalizer.replace(rg, " " + separators[i] + " ");
-    }
-  }
-
+  // defines separators in order to parse through user input
+  const separators = ["+", "-", "*", "/"];
   // defines normalized user input as message
-  const message = spaceNormalizer;
-
-  // splits message into an array, allowing for the user to target specific positions in the message
-  var messageWords = [];
-  if (message) {
-    var array = message.split(" ");
-    array.map((word) => {
-      messageWords.push(word);
-    });
-  }
-
+  const message = spaceNormalizer(userInput, separators);
+  // splits message into an array
+  const messageWords = message ? message.split(" ") : [];
+  // sets up return variables to be edited later
   var total, sumTotal, critTotal;
+
   try {
     // if no input, rolls 1d20
     if (messageWords.length === 0) {

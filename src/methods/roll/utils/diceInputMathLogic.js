@@ -1,28 +1,3 @@
-const spaceNormalizer = (userInput, separators) => {
-  // if input then remove all spaces, then add spaces around math operators
-  var spaceNormalize = "";
-  if (userInput) {
-    spaceNormalize = userInput.replaceAll(" ", "").toLowerCase();
-
-    for (var i = 0; i < separators.length; i++) {
-      var rg = new RegExp("\\" + separators[i], "g");
-      spaceNormalize = spaceNormalize.replace(rg, " " + separators[i] + " ");
-    }
-  }
-  return spaceNormalize;
-};
-
-const diceNoInput = (isBoldCrit) => {
-  const sum = Math.floor(Math.random() * 20) + 1;
-  sumTotal = `${sum}`;
-  critTotal = `${sum * 2}`;
-  total = `1d20 (${
-    isBoldCrit ? (sum == 1 || sum == 20 ? `**${sum}**` : sum) : sum
-  })`;
-
-  return { sumTotal, critTotal, total };
-};
-
 const diceInputMathLogic = (messageWords, separators) => {
   var resultWords = [];
   messageWords.map((word) => {
@@ -67,4 +42,4 @@ const diceInputMathLogic = (messageWords, separators) => {
   return resultWords;
 };
 
-module.exports = { spaceNormalizer, diceNoInput, diceInputMathLogic };
+module.exports = diceInputMathLogic;

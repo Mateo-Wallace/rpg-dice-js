@@ -1,9 +1,5 @@
 const { evaluate } = require("mathjs");
-const {
-  spaceNormalizer,
-  diceNoInput,
-  diceInputMathLogic,
-} = require("./utils.js");
+const { spaceNormalizer, diceNoInput, diceInputMathLogic } = require("./utils");
 
 const diceRoller = ({ userInput, isBoldCrit }) => {
   // defines separators in order to parse through user input

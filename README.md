@@ -2,6 +2,12 @@
 
 Npm package that allows users to roll dice with all math and various forms of response
 
+## Settings
+
+isBoldCrit
+defaultDice no input
+
+
 ## Methods
 
 ### Roll
@@ -18,3 +24,4 @@ Response:
     critTotal: "",
   };
 ```
+

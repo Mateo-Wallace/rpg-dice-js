@@ -1,5 +1,9 @@
 const { Dice, roll } = require("./index.js");
 
-const d20 = new Dice({ isBoldCrit: true });
+const d20 = new Dice({ defaultDie: "10" });
 
-console.log(roll("1d20 + 5 + 1 + 1d6"));
+const isClass = 1;
+
+const consoleString = "";
+
+console.log(isClass ? d20.roll(consoleString) : roll(consoleString));

@@ -2,8 +2,8 @@ const rollMethod = require("./methods/roll/roll.js");
 
 class Dice {
   // defines variables for a new Dice class
-  constructor(settings = { isBoldCrit: false, noInputDefaultDie: "20" }) {
-    this.settings = settings;
+  constructor({ isBoldCrit, defaultDie = 20, boldWrapper = ["**", "**"] }) {
+    this.settings = { isBoldCrit, defaultDie, boldWrapper };
   }
 
   // roll method calls logic to roll dice based on various types of user input

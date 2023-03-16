@@ -5,18 +5,23 @@ const diceInputMathLogic = (messageWords, separators) => {
     if (word.includes("d")) {
       let sides = 20; // !roll 20
       let rolls = 1;
+      // checks if the first letter of the string is a number, and checks is the string includes a d
+      // ex: 1d20
       if (!isNaN(word[0] / 1) && word.includes("d")) {
-        // !roll 4d20
         rolls = word.split("d")[0] / 1;
-        sides = word.split("d")[1];
-      } else if (word[0] == "d") {
-        // !roll d20
-        sides = word.slice(1);
+        sides = word.split("d")[1] / 1;
       }
-      sides = sides / 1; // convert to number
+      // checks if first letter is d
+      // ex: d20
+      else if (word[0] == "d") {
+        sides = word.slice(1) / 1;
+      }
+      // if text before or after d is not a number, throw error
       if (isNaN(sides) || isNaN(rolls)) {
         throw Error("Invalid Input");
       }
+
+      // if multiple rolls, push an array of dice roll results
       if (rolls > 1) {
         const rollResults = [];
         for (let i = 0; i < rolls; i++) {
@@ -25,7 +30,9 @@ const diceInputMathLogic = (messageWords, separators) => {
         const sum = rollResults.reduce((a, b) => a + b);
         rollResults.push(sum);
         return resultWords.push(rollResults);
-      } else {
+      }
+      // if single roll, push dice roll result
+      else {
         return resultWords.push(Math.floor(Math.random() * sides) + 1);
       }
     }

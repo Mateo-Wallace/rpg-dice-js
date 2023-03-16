@@ -9,6 +9,7 @@ const spaceNormalizer = (userInput, separators) => {
       spaceNormalize = spaceNormalize.replace(rg, " " + separators[i] + " ");
     }
   }
+  
   return spaceNormalize;
 };
 

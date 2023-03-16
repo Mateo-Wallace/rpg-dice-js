@@ -43,9 +43,9 @@ const rollMethod = ({ userInput, isBoldCrit }) => {
     prefab: `Input: ${message}  |  Result: ${total}  |  Total: ${sumTotal}`,
     input: message,
     inputArray: messageWords,
-    total,
-    totalArray: total.split(/(?!\(.*)\s(?![^(]*?\))/g), //regex to split where spaces unless wrapped by parentheses
-    totalSum: sumTotal,
+    result: total,
+    resultArray: total.split(/(?!\(.*)\s(?![^(]*?\))/g), //regex to split where spaces unless wrapped by parentheses
+    total: sumTotal,
     totalCrit: critTotal,
   };
 };

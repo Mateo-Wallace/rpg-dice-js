@@ -1,6 +1,10 @@
 const { Dice, roll } = require("./index.js");
 
-const d20 = new Dice({ defaultDie: "10" });
+const d20 = new Dice({
+  defaultDie: "10",
+  isBoldCrit: 1,
+  boldWrapper: ["<", ">"],
+});
 
 const isClass = 1;
 

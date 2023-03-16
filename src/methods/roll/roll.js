@@ -5,7 +5,7 @@ const {
   diceInput,
 } = require("./utils");
 
-const rollMethod = ({ userInput, isBoldCrit, defaultDie }) => {
+const rollMethod = ({ userInput, isBoldCrit, defaultDie, boldWrapper }) => {
   // defines separators in order to parse through user input
   const separators = ["+", "-", "*", "/"];
   // defines normalized user input as message
@@ -18,7 +18,7 @@ const rollMethod = ({ userInput, isBoldCrit, defaultDie }) => {
   try {
     // if no input, rolls 1d20
     if (!messageWords.length) {
-      const data = diceNoInput(isBoldCrit, defaultDie);
+      const data = diceNoInput(defaultDie, isBoldCrit, boldWrapper);
       sumTotal = data.sumTotal;
       critTotal = data.critTotal;
       total = data.total;

@@ -1,8 +1,9 @@
 const Dice = require("./src/Dice.js");
-const rollMethod = require("./src/methods/roll/roll.js");
+
+const d20 = new Dice();
 
 const roll = (userInput) => {
-  return rollMethod({ userInput, isBoldCrit: false });
+  return d20.roll(userInput);
 };
 
 module.exports = { Dice, roll };

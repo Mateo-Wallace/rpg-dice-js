@@ -19,6 +19,7 @@ const rollMethod = ({ userInput, isBoldCrit, defaultDie, boldWrapper }) => {
     // if no input, rolls 1d20
     if (!messageWords.length) {
       const data = diceNoInput(defaultDie, isBoldCrit, boldWrapper);
+
       sumTotal = data.sumTotal;
       critTotal = data.critTotal;
       total = data.total;
@@ -28,7 +29,14 @@ const rollMethod = ({ userInput, isBoldCrit, defaultDie, boldWrapper }) => {
       // runs through all values within messageWords array, determines what the input was, and pushes the math to the resultWords array
       const resultWords = diceInputMathLogic(messageWords, separators);
 
-      const data = diceInput(messageWords, resultWords, separators, isBoldCrit);
+      const data = diceInput(
+        messageWords,
+        resultWords,
+        separators,
+        isBoldCrit,
+        boldWrapper
+      );
+
       sumTotal = data.sumTotal;
       critTotal = data.critTotal;
       total = data.total;

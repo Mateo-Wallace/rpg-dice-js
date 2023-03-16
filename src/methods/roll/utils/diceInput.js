@@ -1,6 +1,12 @@
 const { evaluate } = require("mathjs");
 
-const diceInput = (messageWords, resultWords, separators, isBoldCrit) => {
+const diceInput = (
+  messageWords,
+  resultWords,
+  separators,
+  isBoldCrit,
+  boldWrapper
+) => {
   var result = [];
   var sum = [];
   var crit = [];
@@ -12,7 +18,7 @@ const diceInput = (messageWords, resultWords, separators, isBoldCrit) => {
     const boldCrit = isBoldCrit
       ? resultWords[i] == 1 ||
         resultWords[i] == messageWords[i].split("d")[1] / 1
-        ? `**${resultWords[i]}**`
+        ? `${boldWrapper[0]}${resultWords[i]}${boldWrapper[1]}`
         : resultWords[i]
       : resultWords[i];
 
@@ -43,7 +49,7 @@ const diceInput = (messageWords, resultWords, separators, isBoldCrit) => {
         const boldCritArr = isBoldCrit
           ? resultWords[i][j] == 1 ||
             resultWords[i][j] == messageWords[i].split("d")[1] / 1
-            ? `**${resultWords[i][j]}**`
+            ? `${boldWrapper[0]}${resultWords[i][j]}${boldWrapper[1]}`
             : resultWords[i][j]
           : resultWords[i][j];
 

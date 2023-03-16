@@ -8,6 +8,6 @@ const d20 = new Dice({
 
 const isClass = 1;
 
-const consoleString = "";
+const consoleString = "12d5 + 1d3";
 
 console.log(isClass ? d20.roll(consoleString) : roll(consoleString));

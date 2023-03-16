@@ -5,9 +5,16 @@ const d20 = new Dice({
   isBoldCrit: 1,
   boldWrapper: ["<", ">"],
 });
-
-const isClass = 1;
-
-const consoleString = "12d5 + 1d3";
-
+const isClass = 0;
+const consoleString = "1d20 + 5";
 console.log(isClass ? d20.roll(consoleString) : roll(consoleString));
+
+// // -----------------
+// // Checks to see if calling dice uses default settings
+
+// const noSettings = new Dice({});
+// const settingsString = JSON.stringify(noSettings.currentSettings());
+// settingsString ==
+// `{"isBoldCrit":false,"defaultDie":20,"boldWrapper":["**","**"]}`
+//   ? console.log("Default Settings? Passed")
+//   : console.trace("Default Settings? Failed");

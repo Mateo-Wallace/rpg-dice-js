@@ -2,7 +2,11 @@ const rollMethod = require("./methods/roll/roll.js");
 
 class Dice {
   // defines variables for a new Dice class
-  constructor({ isBoldCrit, defaultDie = 20, boldWrapper = ["**", "**"] }) {
+  constructor({
+    isBoldCrit = false,
+    defaultDie = 20,
+    boldWrapper = ["**", "**"],
+  }) {
     this.settings = { isBoldCrit, defaultDie, boldWrapper };
   }
 

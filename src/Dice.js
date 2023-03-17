@@ -1,4 +1,4 @@
-const { rollMethod, filterFalse } = require("./methods");
+const { rollMethod } = require("./methods");
 
 class Dice {
   // defines variables for a new Dice class

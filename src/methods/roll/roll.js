@@ -4,9 +4,16 @@ const {
   diceInputMathLogic,
   diceInput,
   splitFilterJoin,
+  responseFilter,
 } = require("./utils");
 
-const rollMethod = ({ userInput, isBoldCrit, defaultDie, boldWrapper }) => {
+const rollMethod = ({
+  userInput,
+  isBoldCrit,
+  defaultDie,
+  boldWrapper,
+  responseOptions,
+}) => {
   // defines separators in order to parse through user input
   const separators = ["+", "-", "*", "/"];
   // defines normalized user input as message
@@ -46,8 +53,7 @@ const rollMethod = ({ userInput, isBoldCrit, defaultDie, boldWrapper }) => {
     return { ok: false, errorMessage: "Fatal Error", e };
   }
 
-  // sends data back to user with various options
-  return {
+  const responseLayout = {
     ok: true,
     input: message,
     result: total,
@@ -59,6 +65,12 @@ const rollMethod = ({ userInput, isBoldCrit, defaultDie, boldWrapper }) => {
     resultNoDiceArray: splitFilterJoin(total, 2),
     totalCrit: critTotal,
   };
+
+  // filters response based on user selected options when building Dice class
+  const response = responseFilter(responseLayout, responseOptions);
+
+  // sends data back to user with various options
+  return { ...response };
 };
 
 module.exports = rollMethod;

@@ -43,14 +43,6 @@ class Dice {
   roll(userInput) {
     return rollMethod({ userInput, ...this.settings });
   }
-
-  currentSettings() {
-    return this.settings;
-  }
-
-  currentResponseOptions(showFalse) {
-    return showFalse ? this.responseOptions : filterFalse(this.responseOptions);
-  }
 }
 
 module.exports = Dice;

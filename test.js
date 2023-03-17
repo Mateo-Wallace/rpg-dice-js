@@ -7,8 +7,8 @@ const d20 = new Dice({
 });
 const isClass = 0;
 const consoleString = "";
-console.log(isClass ? d20.roll(consoleString) : roll(consoleString));
-
+// console.log(isClass ? d20.roll(consoleString) : roll(consoleString));
+console.log(d20.settings)
 // // -----------------
 // // Checks to see if calling dice uses default settings
 

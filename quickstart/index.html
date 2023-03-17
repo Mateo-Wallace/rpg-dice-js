@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/rpg-dice-js">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.732398855642">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.732406108253">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -31,12 +31,12 @@
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/rpg-dice-js/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../resources/css/retype.css?v=2.4.0.732398855642" rel="stylesheet" />
+    <link href="../resources/css/retype.css?v=2.4.0.732406108253" rel="stylesheet" />
 
-    <script type="text/javascript" src="../resources/js/config.js?v=2.4.0.732398855642" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../resources/js/config.js?v=2.4.0.732406108253" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../resources/js/lunr.js?v=2.4.0.732398855642" data-turbo-eval="false" defer></script>
-    <script id="prism-js" type="text/javascript" src="../resources/js/prism.js?v=2.4.0.732398855642" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../resources/js/lunr.js?v=2.4.0.732406108253" data-turbo-eval="false" defer></script>
+    <script id="prism-js" type="text/javascript" src="../resources/js/prism.js?v=2.4.0.732406108253" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -268,13 +268,40 @@
 
 const exampleInput = &quot;1d20 + 5&quot;;
 
-// just sending an input through the array will return an object
-// the most important items within that object are:
-// input, result, &amp; total
-console.log(roll(exampleInput));
+// the roll function responds with an Object
+const object = roll(exampleInput);
 
-// example output:</code></pre>
+// to get a specific item within the object add the key after roll
+const result = roll(exampleInput).result;</code></pre>
 </doc-codeblock></div>
+<p>Just using roll responds with an object of various response keys. In order to target a specific key instead of simpling using <code v-pre>roll(&quot;1d20&quot;)</code> use <code v-pre>roll(&quot;1d20&quot;).key</code> where <code v-pre>key</code> is the name of the object key you wish to access.</p>
+<p>Example outputs of using <code v-pre>console.log()</code> on the <code v-pre>object</code> and <code v-pre>result</code> variables</p>
+<doc-tabs>
+<doc-tab id="object-output">
+<template #title>Object output</template>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-json"><code v-pre class="language-json">{
+  &quot;ok&quot;: true,
+  &quot;input&quot;: &quot;1d20 + 5&quot;,
+  &quot;result&quot;: &quot;1d20 (8) + 5&quot;,
+  &quot;total&quot;: 13,
+  &quot;resultNoDice&quot;: &quot;(8) + 5&quot;,
+  &quot;prefab&quot;: &quot;Input: 1d20 + 5  |  Result: 1d20 (8) + 5  |  Total: 13&quot;,
+  &quot;inputArray&quot;: [&quot;1d20&quot;, &quot;+&quot;, &quot;5&quot;],
+  &quot;resultArray&quot;: [&quot;1d20&quot;, &quot;(8)&quot;, &quot;+&quot;, &quot;5&quot;],
+  &quot;resultNoDiceArray&quot;: [&quot;(8)&quot;, &quot;+&quot;, &quot;5&quot;],
+  &quot;totalCrit&quot;: 21
+}</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab id="result-output">
+<template #title>Result output</template>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-json"><code v-pre class="language-json">&quot;1d20 (8) + 5&quot;</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+</doc-tabs>
+<p>For more in depth information on the <code v-pre>roll()</code> function or for information on how to use the <code v-pre>Dice({})</code> class to customize the dice roller, continue reading.</p>
 
                                 
                                 <!-- Required only on API pages -->

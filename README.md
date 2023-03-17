@@ -16,7 +16,7 @@
 <div align="center">
 <img src="./img/rpg-dice-js-400-circle.png" alt="rpg dice logo" width="80" height="80">
 
-  <h1 align="center"><strong>rpg-dice-js</strong></h1>
+  <h3 align="center"><strong><font size="6">rpg-dice-js</font></strong></h3>
 
   <p align="center">
     <strong>A dice roller for the modern javascript dev</strong>

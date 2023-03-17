@@ -1,4 +1,4 @@
-const rollMethod = require("./methods/roll/roll.js");
+const { rollMethod, filterFalse } = require("./methods");
 
 class Dice {
   // defines variables for a new Dice class
@@ -6,8 +6,36 @@ class Dice {
     isBoldCrit = false,
     defaultDie = 20,
     boldWrapper = ["**", "**"],
+
+    ok = true,
+    input = true,
+    result = true,
+    total = true,
+    resultNoDice = true,
+    prefab = true,
+    inputArray = true,
+    resultArray = true,
+    resultNoDiceArray = true,
+    totalCrit = true,
   }) {
-    this.settings = { isBoldCrit, defaultDie, boldWrapper };
+    this.responseOptions = {
+      ok,
+      input,
+      result,
+      total,
+      resultNoDice,
+      prefab,
+      inputArray,
+      resultArray,
+      resultNoDiceArray,
+      totalCrit,
+    };
+    this.settings = {
+      isBoldCrit,
+      defaultDie,
+      boldWrapper,
+      responseOptions: this.responseOptions,
+    };
   }
 
   // roll method calls logic to roll dice based on various types of user input
@@ -18,6 +46,10 @@ class Dice {
 
   currentSettings() {
     return this.settings;
+  }
+
+  currentResponseOptions(showFalse) {
+    return showFalse ? this.responseOptions : filterFalse(this.responseOptions);
   }
 }
 

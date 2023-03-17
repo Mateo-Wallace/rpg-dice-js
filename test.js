@@ -6,9 +6,9 @@ const d20 = new Dice({
   boldWrapper: ["<", ">"],
 });
 const isClass = 0;
-const consoleString = "";
-// console.log(isClass ? d20.roll(consoleString) : roll(consoleString));
-console.log(d20.roll())
+const consoleString = "1d20 + 5";
+console.log(isClass ? d20.roll(consoleString) : roll(consoleString));
+// console.log(d20.roll())
 // // -----------------
 // // Checks to see if calling dice uses default settings
 

@@ -33,6 +33,10 @@ icon: home
   </p>
 </div>
 
+```
+npm i rpg-dice-js
+```
+
 <!-- ABOUT THE PROJECT -->
 
 ## About The Project
@@ -57,40 +61,3 @@ Explore the [documentation]() for further information on how to download and use
 ### Built With
 
 [![JavaScript Shield](https://img.shields.io/badge/JavaScript-F7DF1E?&style=for-the-badge&logo=javascript&logoColor=272727)](https://developer.mozilla.org/en-US/docs/Web/JavaScript) [![NPM Shield](https://img.shields.io/badge/NPM-333333?&style=for-the-badge&logo=npm&logoColor=white)](https://www.npmjs.com/) [![Node.js Shield](https://img.shields.io/badge/Node.js-339933?&style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/en/)
-
-<!-- CONTRIBUTING -->
-
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-1. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-1. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-1. Push to the Branch (`git push origin feature/AmazingFeature`)
-1. Open a Pull Request
-
-If all of this is new to you take a look at the [GitHub Docs](https://docs.github.com/en/get-started/quickstart/fork-a-repo).
-
-<!-- LICENSE -->
-
-## License
-
-Distributed under the MIT License. See [LICENSE](https://github.com/Mateo-Wallace/rpg-dice-js/blob/main/LICENSE) for more information.
-
-<!-- CONTACT -->
-
-## Contact
-
-Mateo Wallace - [GitHub](https://github.com/Mateo-Wallace) - [Email](mailto:mateo.t.wallace@gmail.com) - [LinkedIn](https://www.linkedin.com/in/mateo-wallace/)
-
-<!-- ACKNOWLEDGMENTS -->
-
-## Acknowledgments
-
-I am appreciative for the source code, ideas, and inspiration that all of these repos and creators have provided to this project. If you see anything within my code that you recognize as yours and don't see yourself listed here please feel free to open an issue and I will add you!
-
-- [mathjs - josdejong](https://github.com/josdejong/mathjs)

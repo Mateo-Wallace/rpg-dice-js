@@ -3,6 +3,7 @@ const {
   diceNoInput,
   diceInputMathLogic,
   diceInput,
+  splitFilterJoin,
 } = require("./utils");
 
 const rollMethod = ({ userInput, isBoldCrit, defaultDie, boldWrapper }) => {
@@ -48,12 +49,14 @@ const rollMethod = ({ userInput, isBoldCrit, defaultDie, boldWrapper }) => {
   // sends data back to user with various options
   return {
     ok: true,
-    prefab: `Input: ${message}  |  Result: ${total}  |  Total: ${sumTotal}`,
     input: message,
-    inputArray: messageWords,
     result: total,
-    resultArray: total.split(/(?!\(.*)\s(?![^(]*?\))/g), //regex to split where spaces unless wrapped by parentheses
     total: sumTotal,
+    resultNoDice: splitFilterJoin(total, 3),
+    prefab: `Input: ${message}  |  Result: ${total}  |  Total: ${sumTotal}`,
+    inputArray: messageWords,
+    resultArray: splitFilterJoin(total, 1), //regex to split where spaces unless wrapped by parentheses
+    resultNoDiceArray: splitFilterJoin(total, 2),
     totalCrit: critTotal,
   };
 };

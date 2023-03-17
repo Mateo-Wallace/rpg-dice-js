@@ -56,7 +56,7 @@ Main Features:
 - [User input]() of all kinds accepted
 - [Dice response object]() with robust information such as `input`, `result`, `total`, etc...
 
-Explore the [documentation]() for further information on how to download and use rpg-dice-js.
+See the [Quick Start](https://mateo-wallace.github.io/rpg-dice-js/quickstart/) guide to see how to implement rpg-dice-js into your code!
 
 ### Built With
 

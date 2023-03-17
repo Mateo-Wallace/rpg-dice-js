@@ -1,0 +1,12 @@
+{
+  "ok": true,
+  "input": "1d20 + 5",
+  "result": "1d20 (8) + 5",
+  "total": 13,
+  "resultNoDice": "(8) + 5",
+  "prefab": "Input: 1d20 + 5  |  Result: 1d20 (8) + 5  |  Total: 13",
+  "inputArray": ["1d20", "+", "5"],
+  "resultArray": ["1d20", "(8)", "+", "5"],
+  "resultNoDiceArray": ["(8)", "+", "5"],
+  "totalCrit": 21
+}

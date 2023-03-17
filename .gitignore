@@ -1,3 +1,6 @@
+PRIVATE.md
+.gitignore.example
+
 # Logs
 logs
 *.log

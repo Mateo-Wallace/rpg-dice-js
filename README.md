@@ -1,22 +1,21 @@
-# IN DEVELOPMENT
+---
+order: 100
+label: Welcome
+icon: home
+---
 
-<a name="readme-top"></a>
+# :icon-home: Welcome to the rpg-dice-js Docs
 
 <!-- SHIELDS -->
 
-[![npm Downloads Shield](https://img.shields.io/npm/dm/rpg-dice-js?style=flat-square&logo=npm)]()
-[![Stars Shield](https://img.shields.io/github/stars/Mateo-Wallace/rpg-dice-js.svg?style=flat-square&color=blue&logo=github)](https://github.com/Mateo-Wallace/rpg-dice-js/stargazers)
-[![Forks Shield](https://img.shields.io/github/forks/Mateo-Wallace/rpg-dice-js.svg?style=flat-square&logo=github)](https://github.com/Mateo-Wallace/rpg-dice-js/network/members)
-[![Contributors Shield](https://img.shields.io/github/contributors/Mateo-Wallace/rpg-dice-js.svg?style=flat-square&color=success&logo=github)](https://github.com/Mateo-Wallace/rpg-dice-js/graphs/contributors)
-[![License Shield](https://img.shields.io/github/license/Mateo-Wallace/rpg-dice-js.svg?style=flat-square)](https://github.com/Mateo-Wallace/rpg-dice-js/blob/main/LICENSE)
-[![LinkedIn Shield](https://img.shields.io/badge/LinkedIn-555555?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/mateo-wallace/)
+[![npm Downloads Shield](https://img.shields.io/npm/dm/rpg-dice-js?style=flat-square&logo=npm)]() [![Stars Shield](https://img.shields.io/github/stars/Mateo-Wallace/rpg-dice-js.svg?style=flat-square&color=blue&logo=github)](https://github.com/Mateo-Wallace/rpg-dice-js/stargazers) [![Forks Shield](https://img.shields.io/github/forks/Mateo-Wallace/rpg-dice-js.svg?style=flat-square&logo=github)](https://github.com/Mateo-Wallace/rpg-dice-js/network/members) [![Contributors Shield](https://img.shields.io/github/contributors/Mateo-Wallace/rpg-dice-js.svg?style=flat-square&color=success&logo=github)](https://github.com/Mateo-Wallace/rpg-dice-js/graphs/contributors) [![License Shield](https://img.shields.io/github/license/Mateo-Wallace/rpg-dice-js.svg?style=flat-square)](https://github.com/Mateo-Wallace/rpg-dice-js/blob/main/LICENSE) [![LinkedIn Shield](https://img.shields.io/badge/LinkedIn-555555?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/mateo-wallace/)
 
 <!-- PROJECT LOGO & HEADER -->
 <br />
 <div align="center">
 <img src="./img/rpg-dice-js-400-circle.png" alt="rpg dice logo" width="80" height="80">
 
-  <h3 align="center"><strong>rpg-dice-js</strong></h3>
+  <h1 align="center"><strong>rpg-dice-js</strong></h1>
 
   <p align="center">
     <strong>A dice roller for the modern JavaScript developer</strong>
@@ -33,25 +32,6 @@
     <a href="https://github.com/Mateo-Wallace/rpg-dice-js/issues">Report Bug</a>
   </p>
 </div>
-
-<!-- TABLE OF CONTENTS -->
-
-<details>
-  <summary style="cursor: pointer;"><strong>Table of Contents</strong></summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li><a href="#documentation">Documentation</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
-  </ol>
-</details>
 
 <!-- ABOUT THE PROJECT -->
 
@@ -74,21 +54,9 @@ Main Features:
 
 Explore the [documentation]() for further information on how to download and use rpg-dice-js.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 ### Built With
 
-[![JavaScript Shield](https://img.shields.io/badge/JavaScript-F7DF1E?&style=for-the-badge&logo=javascript&logoColor=272727)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![NPM Shield](https://img.shields.io/badge/NPM-333333?&style=for-the-badge&logo=npm&logoColor=white)](https://www.npmjs.com/)
-[![Node.js Shield](https://img.shields.io/badge/Node.js-339933?&style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/en/)
-
-<!-- DOCUMENTATION -->
-
-## Documentation
-
-Visit the [rpg-dice-js docs](https://mateo-wallace.github.io/MP2-Discord-DumBot-V2/) for in depth descriptions on requiring the package, customizing the `Dice` class, calling the `roll()` function, and more.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+[![JavaScript Shield](https://img.shields.io/badge/JavaScript-F7DF1E?&style=for-the-badge&logo=javascript&logoColor=272727)](https://developer.mozilla.org/en-US/docs/Web/JavaScript) [![NPM Shield](https://img.shields.io/badge/NPM-333333?&style=for-the-badge&logo=npm&logoColor=white)](https://www.npmjs.com/) [![Node.js Shield](https://img.shields.io/badge/Node.js-339933?&style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/en/)
 
 <!-- CONTRIBUTING -->
 
@@ -107,23 +75,17 @@ Don't forget to give the project a star! Thanks again!
 
 If all of this is new to you take a look at the [GitHub Docs](https://docs.github.com/en/get-started/quickstart/fork-a-repo).
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 <!-- LICENSE -->
 
 ## License
 
 Distributed under the MIT License. See [LICENSE](https://github.com/Mateo-Wallace/rpg-dice-js/blob/main/LICENSE) for more information.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 <!-- CONTACT -->
 
 ## Contact
 
 Mateo Wallace - [GitHub](https://github.com/Mateo-Wallace) - [Email](mailto:mateo.t.wallace@gmail.com) - [LinkedIn](https://www.linkedin.com/in/mateo-wallace/)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ACKNOWLEDGMENTS -->
 
@@ -132,5 +94,3 @@ Mateo Wallace - [GitHub](https://github.com/Mateo-Wallace) - [Email](mailto:mate
 I am appreciative for the source code, ideas, and inspiration that all of these repos and creators have provided to this project. If you see anything within my code that you recognize as yours and don't see yourself listed here please feel free to open an issue and I will add you!
 
 - [mathjs - josdejong](https://github.com/josdejong/mathjs)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>

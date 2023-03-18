@@ -52,9 +52,9 @@ rpg-dice-js is an npm package that allows a user to send an input to a `roll()` 
 
 Main Features:
 
-- [Settings](./diceclass/#settings) adjustment within a `Dice` model
-- [User input](./rollfunction/#valid-inputs) of all kinds accepted
-- [Dice response object](./rollfunction/#output) with robust information such as `input`, `result`, `total`, etc...
+- [Settings](https://mateo-wallace.github.io/rpg-dice-js/diceclass/#settings) adjustment within a `Dice` model
+- [User input](https://mateo-wallace.github.io/rpg-dice-js/rollfunction/#valid-inputs) of all kinds accepted
+- [Dice response object](https://mateo-wallace.github.io/rpg-dice-js/rollfunction/#output) with robust information such as `input`, `result`, `total`, etc...
 
 See the [Quick Start](https://mateo-wallace.github.io/rpg-dice-js/quickstart/) guide to see how to implement rpg-dice-js into your code!
 

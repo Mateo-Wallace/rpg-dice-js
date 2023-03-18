@@ -30,9 +30,45 @@ roll("1d20 + 5")
 This will return a js object that includes a bunch of data types such as the input, response, and total. In order to access a specific data type simply add the key of your data after the roll function:
 
 ```
-roll("1d20 + 5").response
+roll("1d20 + 5").result
 ```
 
 For more in depth info see [roll()]()
 
 ## Use the Dice class
+
+Once the `Dice` class has been imported, we must declare a variable to use as a `new Dice({})`. This will allow us to run the methods associated with our class, such as roll.
+
+```
+const d20 = new Dice({})
+```
+
+Before we move forward lets take a look at adjusting settings as thats the entire point of the class! In order to change your settings choose the setting you wish to adjust and assign it your custom value.
+
+```
+const d20 = new Dice({ isBoldCrit: true })
+```
+
+For example declaring `isBoldCrit: true` makes so if a die is rolled and the value is either 1 or the highest number available, it will wrap that number in two asterisks, `**`. Don't worry, you can also change the bold wrapper as well. For now lets continue.
+
+Now that our `Dice` class has been declared and assigned a variable we can access its methods. The main method we will be calling is the `roll()` method!
+
+```
+d20.roll("1d20 + 5")
+```
+
+Just like the regular `roll` function, this `roll` method has all the same properties. It will return a js object that includes a bunch of data types such as the input, response, and total. In order to access a specific data type simply add the key of your data after the roll method:
+
+```
+d20.roll("1d20 + 5").result
+```
+
+For more in depth info see [Dice(\{})]()
+
+## Example Usage
+
++++ Roll
+:::code source="./code/ovRollFull.js" :::
++++ Dice
+:::code source="./code/ovDiceFull.js" :::
++++

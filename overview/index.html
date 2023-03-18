@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/rpg-dice-js">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.732408610855">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.732469305085">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -31,12 +31,12 @@
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/rpg-dice-js/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../resources/css/retype.css?v=2.4.0.732408610855" rel="stylesheet" />
+    <link href="../resources/css/retype.css?v=2.4.0.732469305085" rel="stylesheet" />
 
-    <script type="text/javascript" src="../resources/js/config.js?v=2.4.0.732408610855" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../resources/js/config.js?v=2.4.0.732469305085" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../resources/js/lunr.js?v=2.4.0.732408610855" data-turbo-eval="false" defer></script>
-    <script id="prism-js" type="text/javascript" src="../resources/js/prism.js?v=2.4.0.732408610855" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../resources/js/lunr.js?v=2.4.0.732469305085" data-turbo-eval="false" defer></script>
+    <script id="prism-js" type="text/javascript" src="../resources/js/prism.js?v=2.4.0.732469305085" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -267,7 +267,7 @@
 <pre class="language-javascript"><code v-pre class="language-javascript">// you do not need both, follow the structure of your project if your using require or import
 
 // require
-const { roll } = require(&quot;./index.js&quot;);
+const { roll } = require(&quot;rpg-dice-js&quot;);
 
 // import
 import { roll } from &quot;rpg-dice-js&quot;;</code></pre>
@@ -279,7 +279,7 @@ import { roll } from &quot;rpg-dice-js&quot;;</code></pre>
 <pre class="language-javascript"><code v-pre class="language-javascript">// you do not need both, follow the structure of your project if your using require or import
 
 // require
-const { Dice } = require(&quot;./index.js&quot;);
+const { Dice } = require(&quot;rpg-dice-js&quot;);
 
 // import
 import { Dice } from &quot;rpg-dice-js&quot;;</code></pre>
@@ -291,7 +291,7 @@ import { Dice } from &quot;rpg-dice-js&quot;;</code></pre>
 <pre class="language-javascript"><code v-pre class="language-javascript">// you do not need both, follow the structure of your project if your using require or import
 
 // require
-const { Dice, roll } = require(&quot;./index.js&quot;);
+const { Dice, roll } = require(&quot;rpg-dice-js&quot;);
 
 // import
 import { Dice, roll } from &quot;rpg-dice-js&quot;;</code></pre>
@@ -310,7 +310,7 @@ import { Dice, roll } from &quot;rpg-dice-js&quot;;</code></pre>
 </doc-codeblock></div>
 <p>This will return a js object that includes a bunch of data types such as the input, response, and total. In order to access a specific data type simply add the key of your data after the roll function:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">roll(&quot;1d20 + 5&quot;).response</code></pre>
+<pre class="language-none"><code v-pre class="language-none">roll(&quot;1d20 + 5&quot;).result</code></pre>
 </doc-codeblock></div>
 <p>For more in depth info see <a href="">roll()</a></p>
 <doc-anchor-target id="use-the-dice-class">
@@ -319,6 +319,67 @@ import { Dice, roll } from &quot;rpg-dice-js&quot;;</code></pre>
         <span>Use the Dice class</span>
     </h2>
 </doc-anchor-target>
+<p>Once the <code v-pre>Dice</code> class has been imported, we must declare a variable to use as a <code v-pre>new Dice({})</code>. This will allow us to run the methods associated with our class, such as roll.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">const d20 = new Dice({})</code></pre>
+</doc-codeblock></div>
+<p>Before we move forward lets take a look at adjusting settings as thats the entire point of the class! In order to change your settings choose the setting you wish to adjust and assign it your custom value.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">const d20 = new Dice({ isBoldCrit: true })</code></pre>
+</doc-codeblock></div>
+<p>For example declaring <code v-pre>isBoldCrit: true</code> makes so if a die is rolled and the value is either 1 or the highest number available, it will wrap that number in two asterisks, <code v-pre>**</code>. Don&#x27;t worry, you can also change the bold wrapper as well. For now lets continue.</p>
+<p>Now that our <code v-pre>Dice</code> class has been declared and assigned a variable we can access its methods. The main method we will be calling is the <code v-pre>roll()</code> method!</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">d20.roll(&quot;1d20 + 5&quot;)</code></pre>
+</doc-codeblock></div>
+<p>Just like the regular <code v-pre>roll</code> function, this <code v-pre>roll</code> method has all the same properties. It will return a js object that includes a bunch of data types such as the input, response, and total. In order to access a specific data type simply add the key of your data after the roll method:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">d20.roll(&quot;1d20 + 5&quot;).result</code></pre>
+</doc-codeblock></div>
+<p>For more in depth info see <a href="">Dice({})</a></p>
+<doc-anchor-target id="example-usage">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#example-usage">#</doc-anchor-trigger>
+        <span>Example Usage</span>
+    </h2>
+</doc-anchor-target>
+<doc-tabs>
+<doc-tab id="roll">
+<template #title>Roll</template>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">// require
+const { roll } = require(&quot;rpg-dice-js&quot;);
+
+// example userInput, change this value to change what is fed to the dice roll
+const userInput = &quot;1d20 + 5&quot;;
+
+// roll dice and respond with the result
+const result = roll(userInput).result;
+
+// write the result in console
+console.log(result);</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab id="dice">
+<template #title>Dice</template>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">// require
+const { Dice } = require(&quot;rpg-dice-js&quot;);
+
+// declare new Dice variable
+const d20 = new Dice({ isBoldCrit: true });
+
+// example userInput, change this value to change what is fed to the dice roll
+const userInput = &quot;1d20 + 5&quot;;
+
+// roll dice and respond with the result
+const result = d20.roll(userInput).result;
+
+// write the result in console
+console.log(result);</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+</doc-tabs>
 
                                 
                                 <!-- Required only on API pages -->

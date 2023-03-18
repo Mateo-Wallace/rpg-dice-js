@@ -33,7 +33,7 @@ This will return a js object that includes a bunch of data types such as the inp
 roll("1d20 + 5").result
 ```
 
-For more in depth info see [roll()]()
+For more in depth info see [roll() function](./rollfunction/)
 
 ## Use the Dice class
 
@@ -63,7 +63,7 @@ Just like the regular `roll` function, this `roll` method has all the same prope
 d20.roll("1d20 + 5").result
 ```
 
-For more in depth info see [Dice(\{})]()
+For more in depth info see [Dice(\{}) Class](./diceclass/)
 
 ## Example Usage
 

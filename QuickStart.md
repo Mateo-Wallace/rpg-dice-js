@@ -31,4 +31,10 @@ Example outputs of using `console.log()` on the `object` and `result` variables
 :::code source="./code/qsRes.json" :::
 +++
 
+## More Info
+
 For more in depth information on the `roll()` function or for information on how to use the `Dice({})` class to customize the dice roller, continue reading.
+
+[roll() function](./rollfunction/)
+
+[Dice(\{}) Class](./diceclass/)

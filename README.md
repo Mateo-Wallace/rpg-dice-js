@@ -13,7 +13,7 @@ icon: home
 <!-- PROJECT LOGO & HEADER -->
 <br />
 <div align="center">
-<img src="./img/rpg-dice-js-400-circle.png" alt="rpg dice logo" width="80" height="80">
+<img src="./img/rpg-dice-js-400-circle.png" alt="rpg dice logo" width="100" height="100">
 
   <h1 align="center"><strong>rpg-dice-js</strong></h1>
 
@@ -52,9 +52,9 @@ rpg-dice-js is an npm package that allows a user to send an input to a `roll()` 
 
 Main Features:
 
-- [Settings]() adjustment within a `Dice` model
-- [User input]() of all kinds accepted
-- [Dice response object]() with robust information such as `input`, `result`, `total`, etc...
+- [Settings](./diceclass/#settings) adjustment within a `Dice` model
+- [User input](./rollfunction/#valid-inputs) of all kinds accepted
+- [Dice response object](./rollfunction/#output) with robust information such as `input`, `result`, `total`, etc...
 
 See the [Quick Start](https://mateo-wallace.github.io/rpg-dice-js/quickstart/) guide to see how to implement rpg-dice-js into your code!
 

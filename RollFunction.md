@@ -3,9 +3,9 @@ order: 98
 icon: code
 ---
 
-# :icon-code: roll()
+# :icon-code: roll() function
 
-The `roll()` function is a rpg dice roller that allows for various user inputs and responds with an object of data. For basic usage instructions of `roll` check out [Use the roll function](./overview/#use-the-roll-function).
+The `roll()` function is a rpg dice roller that allows for various user inputs and responds with an object of data. For basic usage instructions of `roll` check out [Use the Roll function](./overview/#use-the-roll-function).
 
 ## Calling the roll() function
 

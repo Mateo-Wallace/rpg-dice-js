@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/rpg-dice-js">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.732490706232">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.732495901431">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -31,11 +31,12 @@
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/rpg-dice-js/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../resources/css/retype.css?v=2.4.0.732490706232" rel="stylesheet" />
+    <link href="../resources/css/retype.css?v=2.4.0.732495901431" rel="stylesheet" />
 
-    <script type="text/javascript" src="../resources/js/config.js?v=2.4.0.732490706232" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../resources/js/config.js?v=2.4.0.732495901431" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../resources/js/lunr.js?v=2.4.0.732490706232" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../resources/js/lunr.js?v=2.4.0.732495901431" data-turbo-eval="false" defer></script>
+    <script id="prism-js" type="text/javascript" src="../resources/js/prism.js?v=2.4.0.732495901431" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -252,6 +253,94 @@
     </h1>
 </doc-anchor-target>
 <p>The <code v-pre>Dice({})</code> class allows you to add various settings options in order to customize your dice instance. For basic usage instructions of <code v-pre>Dice({})</code> check out <a href="../overview/#use-the-dice-class">Use the Dice Class</a>.</p>
+<doc-anchor-target id="settings">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#settings">#</doc-anchor-trigger>
+        <span>Settings</span>
+    </h2>
+</doc-anchor-target>
+<p>To configure settings simply add them as an object to the <code v-pre>Dice</code> class.</p>
+<p><strong>Default Settings</strong>:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">// these are the DEFAULT dice settings
+const d20 = new Dice({
+  isBoldCrit: false,
+  defaultDie: 20,
+  boldWrapper: [&quot;**&quot;, &quot;**&quot;],
+
+  ok: true,
+  input: true,
+  result: true,
+  total: true,
+  resultNoDice: true,
+  prefab: true,
+  inputArray: true,
+  resultArray: true,
+  resultNoDiceArray: true,
+  totalCrit: true,
+});</code></pre>
+</doc-codeblock></div>
+<p>Add as many or as little settings as you would like, whatever settings you don&#x27;t declare will assume the default setting listed above.</p>
+<doc-anchor-target id="isboldcrit">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#isboldcrit">#</doc-anchor-trigger>
+        <span>isBoldCrit</span>
+    </h3>
+</doc-anchor-target>
+<p>Determines if dice rolls that come out to either 1 or the highest number possible are wrapped by the <code v-pre>boldWrapper</code>. The default bold wrapper is <code v-pre>[&quot;**&quot;, &quot;**&quot;]</code>.</p>
+<p><strong>Valid input</strong>: <code v-pre>true</code> or <code v-pre>false</code>. For a may simple version of true or false feel free to use <code v-pre>1</code> for true and <code v-pre>0</code> for false.</p>
+<p><strong>Default Value</strong>: <code v-pre>false</code></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">const d20 = new Dice({
+    isBoldCrit: true,
+})</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="defaultdie">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#defaultdie">#</doc-anchor-trigger>
+        <span>defaultDie</span>
+    </h3>
+</doc-anchor-target>
+<p>Determines the die rolled when there is no input.</p>
+<p><strong>Valid input</strong>: <code v-pre>integer</code>. Example: <code v-pre>4</code>, <code v-pre>6</code>, <code v-pre>20</code>, <code v-pre>179</code></p>
+<p><strong>Default value</strong>: <code v-pre>20</code></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">const d20 = new Dice({
+    defaultDie: 6,
+})</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="boldwrapper">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#boldwrapper">#</doc-anchor-trigger>
+        <span>boldWrapper</span>
+    </h3>
+</doc-anchor-target>
+<p>Determines what surrounds a die result when it is either 1 or the highest number possible. This can be used to potentially <strong>bold</strong> items in markdown using <code v-pre>[&quot;**&quot;, &quot;**&quot;]</code>, or in html using <code v-pre>[&quot;&lt;strong&gt;&quot;, &quot;&lt;/strong&gt;&quot;]</code>.</p>
+<p><strong>Valid input</strong>: An array with two items. Position 1 is placed to the left of the number. Position 2 is placed to the right of the number. Example: <code v-pre>[&quot;&lt;strong&gt;&quot;, &quot;&lt;/strong&gt;&quot;]</code></p>
+<p><strong>Default value</strong>: <code v-pre>[&quot;**&quot;, &quot;**&quot;]</code></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">const d20 = new Dice({
+    boldWrapper: [&quot;&lt;strong&gt;&quot;, &quot;&lt;/strong&gt;&quot;],
+})</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="response-options">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#response-options">#</doc-anchor-trigger>
+        <span>Response Options</span>
+    </h3>
+</doc-anchor-target>
+<p>The rest of the settings simply determine which responses are sent back when the <code v-pre>roll()</code> method is called. They are all set to true by default. This includes <code v-pre>ok</code>, <code v-pre>input</code>, <code v-pre>result</code>, <code v-pre>total</code>, <code v-pre>resultNoDice</code>, <code v-pre>prefab</code>, <code v-pre>inputArray</code>, <code v-pre>resultNoDiceArray</code>, and <code v-pre>totalCrit</code>.</p>
+<p><strong>Valid input</strong>: <code v-pre>true</code> or <code v-pre>false</code>. For a may simple version of true or false feel free to use <code v-pre>1</code> for true and <code v-pre>0</code> for false.</p>
+<p><strong>Default Value</strong>: <code v-pre>true</code></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">const d20 = new Dice({
+    resultNoDice: false,
+    prefab: false,
+    inputArray: false,
+    resultArray: false,
+    resultNoDiceArray: false,
+})</code></pre>
+</doc-codeblock></div>
 
                                 
                                 <!-- Required only on API pages -->
@@ -318,6 +407,6 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script>window.__DOCS__ = { "title": " Dice({}) Class", level: 1, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
+    <script>window.__DOCS__ = { "title": " Dice({}) Class", level: 1, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
 </body>
 </html>

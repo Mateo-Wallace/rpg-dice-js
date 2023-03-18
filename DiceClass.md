@@ -75,3 +75,45 @@ const d20 = new Dice({
     resultNoDiceArray: false,
 })
 ```
+
+## Methods
+
+All methods require you to declare a new `Dice` variable. In order to call the method simply add the name of the method after the variable with a `.`
+
+```
+const d20 = new Dice({});
+
+const diceRoll = d20.roll("1d20 + 1")
+
+const settings = d20.settings
+```
+
+### roll()
+
+The `roll()` method is the exact same as the `roll()` function. The only difference is the way it is called.
+
+```
+const d20 = new Dice({});
+
+const diceRoll = d20.roll("1d20 + 1")
+```
+
+### settings
+
+The `settings` method responds with an object of all current settings.
+
+```
+const d20 = new Dice({});
+
+const settings = d20.settings
+```
+
+### responseOptions
+
+The `responseOptions` method responds with an object of all current response options.
+
+```
+const d20 = new Dice({});
+
+const responseOptions = d20.responseOptions
+```

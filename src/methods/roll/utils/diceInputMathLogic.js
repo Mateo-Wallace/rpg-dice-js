@@ -15,6 +15,8 @@ const diceInputMathLogic = (messageWords, separators) => {
       // ex: d20
       else if (word[0] == "d") {
         sides = word.slice(1) / 1;
+      } else {
+        sides = NaN;
       }
       // if text before or after d is not a number, throw error
       if (isNaN(sides) || isNaN(rolls)) {

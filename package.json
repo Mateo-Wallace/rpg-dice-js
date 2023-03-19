@@ -1,6 +1,6 @@
 {
-  "name": "rpg-dice-js",
-  "version": "1.0.0",
+  "name": "@mateo-wallace/rpg-dice-js",
+  "version": "1.0.1",
   "description": "Npm package that allows users to roll dice with all math and various forms of response",
   "main": "index.js",
   "scripts": {
@@ -28,7 +28,7 @@
   "bugs": {
     "url": "https://github.com/Mateo-Wallace/Rpg-Dice-Js/issues"
   },
-  "homepage": "https://github.com/Mateo-Wallace/Rpg-Dice-Js#readme",
+  "homepage": "https://mateo-wallace.github.io/rpg-dice-js/",
   "dependencies": {
     "mathjs": "^11.6.0"
   }

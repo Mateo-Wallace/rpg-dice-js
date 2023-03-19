@@ -116,7 +116,15 @@ Distributed under the MIT License. See [LICENSE](https://github.com/Mateo-Wallac
 
 ## Contact
 
-Mateo Wallace - [GitHub](https://github.com/Mateo-Wallace) - [Email](mailto:mateo.t.wallace@gmail.com) - [LinkedIn](https://www.linkedin.com/in/mateo-wallace/)
+Mateo Wallace
+
+[GitHub - github.com/Mateo-Wallace](https://github.com/Mateo-Wallace)
+
+[Email - mateo.t.wallace@gmail.com](mailto:mateo.t.wallace@gmail.com)
+
+[LinkedIn - linkedin.com/in/mateo-wallace/](https://www.linkedin.com/in/mateo-wallace/)
+
+[Portfolio - mateo-wallace.github.io/](https://mateo-wallace.github.io/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

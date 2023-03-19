@@ -10,7 +10,7 @@ icon: rocket
 Navigate to your projects root directory and open the console. From the command line run:
 
 ```
-npm i rpg-dice-js
+npm i @mateo-wallace/rpg-dice-js
 ```
 
 ## Require rpg-dice-js and call the roll() function

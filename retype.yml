@@ -15,7 +15,7 @@ links:
     icon: mark-github
     target: blank
   - text: npm
-    link: /
+    link: https://www.npmjs.com/package/@mateo-wallace/rpg-dice-js
     icon: package
     target: blank
   - text: Issues

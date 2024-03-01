@@ -49,14 +49,16 @@ class Dice {
    * @return {Object} The result of the dice roll.
    */
   roll(userInput) {
-    if (typeof userInput !== 'string') {
-      throw new Error('User input must be a string.');
+    if (userInput !== undefined && typeof userInput !== "string") {
+      throw new Error(
+        `User input must be a string or empty. Not ${typeof userInput}`
+      );
     }
 
     try {
       return rollMethod({ userInput, ...this.settings });
     } catch (error) {
-      console.error('Error rolling dice:', error);
+      console.error("Error rolling dice:", error);
       return null;
     }
   }

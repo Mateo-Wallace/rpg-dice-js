@@ -1,7 +1,7 @@
-const Dice = require("./src/Dice.js");
+import Dice from "./src/Dice.js";
 
 const roll = (userInput) => {
   return new Dice({}).roll(userInput);
 };
 
-module.exports = { Dice, roll };
+export default roll;

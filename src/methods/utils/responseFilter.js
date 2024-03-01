@@ -1,5 +1,5 @@
 const responseFilter = (response, responseOptions) => {
-  var onlyTrueObj = {};
+  const onlyTrueObj = {};
   for (const key in responseOptions) {
     if (responseOptions[key] === true) {
       onlyTrueObj[key] = response[key];
@@ -9,4 +9,4 @@ const responseFilter = (response, responseOptions) => {
   return onlyTrueObj;
 };
 
-module.exports = responseFilter;
+export default responseFilter;

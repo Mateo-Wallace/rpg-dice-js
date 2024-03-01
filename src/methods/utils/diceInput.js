@@ -1,4 +1,4 @@
-const { evaluate } = require("mathjs");
+import { evaluate } from "mathjs";
 
 const diceInput = (
   messageWords,
@@ -7,9 +7,9 @@ const diceInput = (
   isBoldCrit,
   boldWrapper
 ) => {
-  var result = [];
-  var sum = [];
-  var crit = [];
+  const result = [];
+  const sum = [];
+  const crit = [];
 
   // loops through all items within result words array and formats them correctly
   for (let i = 0; i < resultWords.length; i++) {
@@ -39,28 +39,28 @@ const diceInput = (
       result.push(`${resultWords[i]}`);
     }
     // checks if resultWord is an array, if so run math on all operators
-    else if (resultWords[i].constructor === Array) {
-      var popped = resultWords[i].pop();
+    else if (Array.isArray(resultWords[i])) {
+      const popped = resultWords[i].pop();
       sum.push(popped);
       crit.push(popped * 2);
 
-      var arr = [];
-      for (let j = 0; j < resultWords[i].length; j++) {
+      const arr = resultWords[i].map((item, j) => {
         const boldCritArr = isBoldCrit
-          ? resultWords[i][j] == 1 ||
-            resultWords[i][j] == messageWords[i].split("d")[1] / 1
-            ? `${boldWrapper[0]}${resultWords[i][j]}${boldWrapper[1]}`
-            : resultWords[i][j]
-          : resultWords[i][j];
+          ? item == 1 ||
+            item == messageWords[i].split("d")[1] / 1
+            ? `${boldWrapper[0]}${item}${boldWrapper[1]}`
+            : item
+          : item;
 
-        if (j == resultWords[i].length - 1) {
-          arr.push(` ${boldCritArr}`);
-        } else if (j == 0) {
-          arr.push(`${boldCritArr}`);
+        if (j === resultWords[i].length - 1) {
+          return ` ${boldCritArr}`;
+        } else if (j === 0) {
+          return `${boldCritArr}`;
         } else {
-          arr.push(` ${boldCritArr}`);
+          return ` ${boldCritArr}`;
         }
-      }
+      });
+
       result.push(`${messageWords[i]} (${arr})`);
     }
   }
@@ -72,4 +72,4 @@ const diceInput = (
   return { total, sumTotal, critTotal };
 };
 
-module.exports = diceInput;
+export default diceInput;

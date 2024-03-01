@@ -9,10 +9,11 @@ const splitFilterJoin = (total, depth) => {
       return s;
     case 2:
       return sf;
-
     case 3:
       return sfj;
+    default:
+      return total;
   }
 };
 
-module.exports = splitFilterJoin;
+export default splitFilterJoin;

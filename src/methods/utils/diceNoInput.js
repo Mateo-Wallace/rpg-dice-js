@@ -4,7 +4,7 @@ const diceNoInput = (defaultDie, isBoldCrit, boldWrapper) => {
   const critTotal = `${sum * 2}`;
   const total = `d${defaultDie} (${
     isBoldCrit
-      ? sum == 1 || sum == defaultDie
+      ? sum === 1 || sum === defaultDie
         ? `${boldWrapper[0]}${sum}${boldWrapper[1]}`
         : sum
       : sum
@@ -13,4 +13,4 @@ const diceNoInput = (defaultDie, isBoldCrit, boldWrapper) => {
   return { sumTotal, critTotal, total };
 };
 
-module.exports = diceNoInput;
+export default diceNoInput;

@@ -2,7 +2,7 @@ import { evaluate } from "mathjs";
 
 const spaceNormalizer = (userInput, separators) => {
   let spaceNormalize = "";
-  
+
   if (userInput) {
     spaceNormalize = userInput.replaceAll(" ", "").toLowerCase();
 
@@ -11,7 +11,7 @@ const spaceNormalizer = (userInput, separators) => {
       spaceNormalize = spaceNormalize.replace(rg, ` ${separator} `);
     });
   }
-  
+
   return spaceNormalize;
 };
 
@@ -51,8 +51,9 @@ const diceInputMathLogic = (messageWords, separators) => {
       }
 
       if (rolls > 1) {
-        const rollResults = Array.from({ length: rolls }, () =>
-          Math.floor(Math.random() * sides) + 1
+        const rollResults = Array.from(
+          { length: rolls },
+          () => Math.floor(Math.random() * sides) + 1
         );
         const sum = rollResults.reduce((a, b) => a + b);
         rollResults.push(sum);
@@ -107,8 +108,7 @@ const diceInput = (
 
       const arr = resultWords[i].map((item, j) => {
         const boldCritArr = isBoldCrit
-          ? item == 1 ||
-            item == messageWords[i].split("d")[1] / 1
+          ? item == 1 || item == messageWords[i].split("d")[1] / 1
             ? `${boldWrapper[0]}${item}${boldWrapper[1]}`
             : item
           : item;

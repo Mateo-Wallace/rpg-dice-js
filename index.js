@@ -1,7 +1,10 @@
-import Dice from "./src/Dice.js";
+import Dice from "./models/Dice.js";
 
-const roll = (userInput) => {
-  return new Dice({}).roll(userInput);
+const roll = (userInput, diceSettings) => {
+  if (!diceSettings) {
+    diceSettings = {};
+  }
+  return new Dice(diceSettings).roll(userInput);
 };
 
 export default roll;

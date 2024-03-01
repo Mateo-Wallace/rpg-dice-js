@@ -1,4 +1,4 @@
-import rollMethod from "./methods/roll.js";
+import rollMethod from "../methods/roll.js";
 
 /**
  * Class representing a dice.

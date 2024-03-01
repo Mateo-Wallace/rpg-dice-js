@@ -1,12 +1,17 @@
-const { rollMethod } = require("./methods");
+import rollMethod from "../methods/roll.js";
 
+/**
+ * Class representing a dice.
+ */
 class Dice {
-  // defines variables for a new Dice class
+  /**
+   * Create a dice.
+   * @param {Object} options - The options for the dice.
+   */
   constructor({
     isBoldCrit = false,
     defaultDie = 20,
     boldWrapper = ["**", "**"],
-
     ok = true,
     input = true,
     result = true,
@@ -38,11 +43,23 @@ class Dice {
     };
   }
 
-  // roll method calls logic to roll dice based on various types of user input
-  // example: 1d20, 1d6 + 2, 12d30*4 - 7D6
+  /**
+   * Roll the dice.
+   * @param {string} userInput - The user input for the dice roll.
+   * @return {Object} The result of the dice roll.
+   */
   roll(userInput) {
-    return rollMethod({ userInput, ...this.settings });
+    if (typeof userInput !== 'string') {
+      throw new Error('User input must be a string.');
+    }
+
+    try {
+      return rollMethod({ userInput, ...this.settings });
+    } catch (error) {
+      console.error('Error rolling dice:', error);
+      return null;
+    }
   }
 }
 
-module.exports = Dice;
+export default Dice;

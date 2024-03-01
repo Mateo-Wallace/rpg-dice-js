@@ -3,6 +3,7 @@
   "version": "1.0.3",
   "description": "Npm package that allows users to roll dice with all math and various forms of response",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",

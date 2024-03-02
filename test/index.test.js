@@ -58,6 +58,43 @@ describe("Tests basic roll", () => {
       rangeTest("2d6 - 2d4", [-6, 10], "Range of multiple different dice");
     }
   });
+
+  it("Should have the correct values for the response object", () => {
+    function objTest(input, expected, message) {
+      chai.spy.on(Math, "floor", () => 0);
+      const actual = roll(input);
+      assert.deepEqual(actual, expected, message);
+      chai.spy.restore(Math);
+    }
+
+    let obj = {
+      ok: true,
+      input: "1d1",
+      result: "1d1 (1)",
+      total: 1,
+      resultNoDice: "(1)",
+      prefab: "Input: 1d1  |  Result: 1d1 (1)  |  Total: 1",
+      inputArray: ["1d1"],
+      resultArray: ["1d1", "(1)"],
+      resultNoDiceArray: ["(1)"],
+      totalCrit: 2,
+    };
+    objTest("1d1", obj, "1 test");
+
+    obj = {
+      ok: true,
+      input: "1d20 + 5",
+      result: "1d20 (1) + 5",
+      total: 6,
+      resultNoDice: "(1) + 5",
+      prefab: "Input: 1d20 + 5  |  Result: 1d20 (1) + 5  |  Total: 6",
+      inputArray: ["1d20", "+", "5"],
+      resultArray: ["1d20", "(1)", "+", "5"],
+      resultNoDiceArray: ["(1)", "+", "5"],
+      totalCrit: 7,
+    };
+    objTest("1d20 + 5", obj, "Math test");
+  });
 });
 
 // describe("Tests roll with settings", () => {

@@ -1,5 +1,4 @@
 import roll from "../index.js";
-
 import chai from "chai";
 import spies from "chai-spies";
 const { assert, expect } = chai;
@@ -7,26 +6,23 @@ chai.use(spies);
 
 describe("Tests basic roll", () => {
   it("Should return the correct string without randomness", () => {
-    function rollTest(input, expected, message) {
+    function rollTest(input, expected, message, settings) {
       chai.spy.on(Math, "floor", () => 0);
-      const actual = roll(input);
+      const actual = roll(input, settings);
       assert.strictEqual(actual.result, expected, message);
       chai.spy.restore(Math);
     }
 
-    rollTest("1d1", "1d1 (1)", "1 test");
-    rollTest("1d20", "1d20 (1)", "Single die test");
-    rollTest("3d6", "3d6 (1, 1, 1)", "Multiple same dice test");
-    rollTest("1D6", "1d6 (1)", "Capital D test");
-    rollTest("1d6 + 1", "1d6 (1) + 1", "Math test");
-    rollTest("1d6+1", "1d6 (1) + 1", "Spacing test");
-    rollTest(
-      "2d6 - 2d4",
-      "2d6 (1, 1) - 2d4 (1, 1)",
-      "Multiple different dice test"
-    );
-    rollTest(undefined, "d20 (1)", "No input test");
-    rollTest("d6", "d6 (1)", "No number of dice test");
+    rollTest("1d1", "1d1 (1)", "1");
+    rollTest("1d20", "1d20 (1)", "Single die");
+    rollTest("3d6", "3d6 (1, 1, 1)", "Multiple same dice");
+    rollTest("1D6", "1d6 (1)", "Capital D");
+    rollTest("1d6 + 1", "1d6 (1) + 1", "Math");
+    rollTest("1d6+1", "1d6 (1) + 1", "Spacing");
+    rollTest("2d6 - 2d4", "2d6 (1, 1) - 2d4 (1, 1)", "Multiple different dice");
+    rollTest(undefined, "d20 (1)", "No input");
+    rollTest("d6", "d6 (1)", "No number of dice");
+    rollTest(undefined, "d6 (1)", "Settings default die", { defaultDie: 6 });
   });
 
   it("Should throw an error if given an input other than a string or undefined", () => {
@@ -41,7 +37,7 @@ describe("Tests basic roll", () => {
     errTest(() => "");
   });
 
-  it("Should return a total within the available range", () => {
+  it("Should return a total within the available range for 100 tries", () => {
     function rangeTest(input, range, message) {
       const total = roll(input).total;
       const isInRange = total >= range[0] && total <= range[1];
@@ -96,7 +92,3 @@ describe("Tests basic roll", () => {
     objTest("1d20 + 5", obj, "Math test");
   });
 });
-
-// describe("Tests roll with settings", () => {
-
-// });

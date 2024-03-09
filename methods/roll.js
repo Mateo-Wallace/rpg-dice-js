@@ -43,7 +43,7 @@ const diceInputMathLogic = (messageWords, separators) => {
       else if (word[0] === "d") sides = Number(word.slice(1));
       else sides = NaN;
 
-      if (isNaN(sides) || isNaN(rolls)) throw new Error("Invalid Input");
+      if (isNaN(sides) || isNaN(rolls)) throw new Error("Invalid Dice Input");
 
       if (rolls > 1) {
         const rollResults = Array.from(
@@ -56,7 +56,7 @@ const diceInputMathLogic = (messageWords, separators) => {
       } else resultWords.push(Math.floor(Math.random() * sides) + 1);
     } else if (separators.includes(word) || !isNaN(word / 1))
       resultWords.push(word);
-    else throw new Error("Invalid Input");
+    else throw new Error("Invalid Dice Input");
   });
 
   return resultWords;
@@ -166,7 +166,7 @@ const rollMethod = ({
       );
       ({ sumTotal, critTotal, total } = data);
     } catch (err) {
-      return { ok: false, input: message, errorMessage: "Fatal Error", err };
+      return { ok: false, input: userInput, message: "Invalid Input", err };
     }
   }
 

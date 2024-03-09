@@ -10,8 +10,8 @@ class Dice {
    */
   constructor({
     isBoldCrit = false,
-    defaultDie = 20,
     boldWrapper = ["**", "**"],
+    defaultDie = 20,
     ok = true,
     input = true,
     result = true,
@@ -49,18 +49,10 @@ class Dice {
    * @return {Object} The result of the dice roll.
    */
   roll(userInput) {
-    if (userInput !== undefined && typeof userInput !== "string") {
-      throw new Error(
-        `User input must be a string or empty. Not ${typeof userInput}`
-      );
-    }
+    if (userInput !== undefined && typeof userInput !== "string")
+      throw new Error(`Input must be a string or empty. X ${typeof userInput}`);
 
-    try {
-      return rollMethod({ userInput, ...this.settings });
-    } catch (error) {
-      console.error("Error rolling dice:", error);
-      return null;
-    }
+    return rollMethod({ userInput, ...this.settings });
   }
 }
 

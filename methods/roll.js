@@ -38,17 +38,12 @@ const diceInputMathLogic = (messageWords, separators) => {
       let sides = 20; // !roll 20
       let rolls = 1;
 
-      if (!isNaN(word[0] / 1) && word.includes("d")) {
+      if (!isNaN(word[0] / 1) && word.includes("d"))
         [rolls, sides] = word.split("d").map(Number);
-      } else if (word[0] === "d") {
-        sides = Number(word.slice(1));
-      } else {
-        sides = NaN;
-      }
+      else if (word[0] === "d") sides = Number(word.slice(1));
+      else sides = NaN;
 
-      if (isNaN(sides) || isNaN(rolls)) {
-        throw new Error("Invalid Input");
-      }
+      if (isNaN(sides) || isNaN(rolls)) throw new Error("Invalid Input");
 
       if (rolls > 1) {
         const rollResults = Array.from(
@@ -58,14 +53,10 @@ const diceInputMathLogic = (messageWords, separators) => {
         const sum = rollResults.reduce((a, b) => a + b);
         rollResults.push(sum);
         resultWords.push(rollResults);
-      } else {
-        resultWords.push(Math.floor(Math.random() * sides) + 1);
-      }
-    } else if (separators.includes(word) || !isNaN(word / 1)) {
+      } else resultWords.push(Math.floor(Math.random() * sides) + 1);
+    } else if (separators.includes(word) || !isNaN(word / 1))
       resultWords.push(word);
-    } else {
-      throw new Error("Invalid Input");
-    }
+    else throw new Error("Invalid Input");
   });
 
   return resultWords;
@@ -113,13 +104,7 @@ const diceInput = (
             : item
           : item;
 
-        if (j === resultWords[i].length - 1) {
-          return ` ${boldCritArr}`;
-        } else if (j === 0) {
-          return `${boldCritArr}`;
-        } else {
-          return ` ${boldCritArr}`;
-        }
+        return j === 0 ? `${boldCritArr}` : ` ${boldCritArr}`;
       });
 
       result.push(`${messageWords[i]} (${arr})`);
@@ -138,16 +123,9 @@ const splitFilterJoin = (total, depth) => {
   const sf = s.filter((value) => !value.includes("d"));
   const sfj = sf.join(" ");
 
-  switch (depth) {
-    case 1:
-      return s;
-    case 2:
-      return sf;
-    case 3:
-      return sfj;
-    default:
-      return total;
-  }
+  if (depth === 1) return s;
+  if (depth === 2) return sf;
+  if (depth === 3) return sfj;
 };
 
 const responseFilter = (response, responseOptions) => {
@@ -173,11 +151,11 @@ const rollMethod = ({
   const messageWords = message ? message.split(" ") : [];
   let total, sumTotal, critTotal;
 
-  try {
-    if (!messageWords.length) {
-      const data = diceNoInput(defaultDie, isBoldCrit, boldWrapper);
-      ({ sumTotal, critTotal, total } = data);
-    } else {
+  if (!messageWords.length) {
+    const data = diceNoInput(defaultDie, isBoldCrit, boldWrapper);
+    ({ sumTotal, critTotal, total } = data);
+  } else {
+    try {
       const resultWords = diceInputMathLogic(messageWords, separators);
       const data = diceInput(
         messageWords,
@@ -187,9 +165,9 @@ const rollMethod = ({
         boldWrapper
       );
       ({ sumTotal, critTotal, total } = data);
+    } catch (err) {
+      return { ok: false, input: message, errorMessage: "Fatal Error", err };
     }
-  } catch (e) {
-    return { ok: false, errorMessage: "Fatal Error", e };
   }
 
   const responseLayout = {

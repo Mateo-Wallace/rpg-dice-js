@@ -30,18 +30,6 @@ describe("Tests basic roll", () => {
     });
   });
 
-  it("Should throw an error if given an input other than a string or undefined", () => {
-    function errTest(userInput) {
-      expect(roll.bind(roll, userInput)).to.throw();
-    }
-
-    errTest(null);
-    errTest([]);
-    errTest({});
-    errTest(1);
-    errTest(() => "");
-  });
-
   it("Should return a total within the available range for 100 tries", () => {
     function rangeTest(input, range, message) {
       const total = roll(input).total;
@@ -95,5 +83,29 @@ describe("Tests basic roll", () => {
       totalCrit: 7,
     };
     objTest("1d20 + 5", obj, "Math test");
+  });
+
+  it("Should throw an error if given an input other than a string or undefined", () => {
+    function errTest(input) {
+      expect(roll.bind(roll, input)).to.throw();
+    }
+
+    errTest(null);
+    errTest([]);
+    errTest({});
+    errTest(1);
+    errTest(() => "");
+  });
+
+  it("Should not throw an error but respond with invalid input if given a string improperly formatted", () => {
+    function invalidTest(input, message) {
+      const actual = roll(input).ok;
+      const expected = false;
+      assert.deepEqual(actual, expected, message);
+    }
+
+    invalidTest("Hello World", "Sentence");
+    invalidTest("1d20 + 3h10", "Letter");
+    invalidTest("1d20 + * 5", "Multiple math");
   });
 });

@@ -85,9 +85,9 @@ describe("Tests basic roll", () => {
     objTest("1d20 + 5", obj, "Math test");
   });
 
-  it("Should throw an error if given an input other than a string or undefined", () => {
-    function errTest(input) {
-      expect(roll.bind(roll, input)).to.throw();
+  it("Should throw an error if input or settings are passed incorrect data types", () => {
+    function errTest(input, settings) {
+      expect(roll.bind(roll, input, settings)).to.throw();
     }
 
     errTest(null);
@@ -95,6 +95,11 @@ describe("Tests basic roll", () => {
     errTest({});
     errTest(1);
     errTest(() => "");
+    errTest(undefined, null);
+    errTest(undefined, []);
+    errTest(undefined, "");
+    errTest(undefined, 1);
+    errTest(undefined, () => "");
   });
 
   it("Should not throw an error but respond with invalid input if given a string improperly formatted", () => {

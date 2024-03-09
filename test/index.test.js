@@ -23,6 +23,11 @@ describe("Tests basic roll", () => {
     rollTest(undefined, "d20 (1)", "No input");
     rollTest("d6", "d6 (1)", "No number of dice");
     rollTest(undefined, "d6 (1)", "Settings default die", { defaultDie: 6 });
+    rollTest("1d2", "1d2 (**1**)", "Settings bold crit", { isBoldCrit: true });
+    rollTest("1d2", "1d2 (<b>1</b>)", "Settings bold wrapper", {
+      isBoldCrit: true,
+      boldWrapper: ["<b>", "</b>"],
+    });
   });
 
   it("Should throw an error if given an input other than a string or undefined", () => {

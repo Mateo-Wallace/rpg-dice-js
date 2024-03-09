@@ -9,8 +9,8 @@ describe("Tests basic roll", () => {
     function rollTest(input, expected, message, settings) {
       chai.spy.on(Math, "floor", () => 0);
       const actual = roll(input, settings);
-      assert.strictEqual(actual.result, expected, message);
       chai.spy.restore(Math);
+      assert.strictEqual(actual.result, expected, message);
     }
 
     rollTest("1d1", "1d1 (1)", "1");
@@ -18,7 +18,7 @@ describe("Tests basic roll", () => {
     rollTest("3d6", "3d6 (1, 1, 1)", "Multiple same dice");
     rollTest("1D6", "1d6 (1)", "Capital D");
     rollTest("1d6 + 1", "1d6 (1) + 1", "Math");
-    rollTest("1d6+1", "1d6 (1) + 1", "Spacing");
+    rollTest("1d6+1  - 2", "1d6 (1) + 1 - 2", "Spacing");
     rollTest("2d6 - 2d4", "2d6 (1, 1) - 2d4 (1, 1)", "Multiple different dice");
     rollTest(undefined, "d20 (1)", "No input");
     rollTest("d6", "d6 (1)", "No number of dice");
@@ -52,8 +52,8 @@ describe("Tests basic roll", () => {
     function objTest(input, expected, message) {
       chai.spy.on(Math, "floor", () => 0);
       const actual = roll(input);
-      assert.deepEqual(actual, expected, message);
       chai.spy.restore(Math);
+      assert.deepEqual(actual, expected, message);
     }
 
     let obj = {
@@ -107,5 +107,6 @@ describe("Tests basic roll", () => {
     invalidTest("Hello World", "Sentence");
     invalidTest("1d20 + 3h10", "Letter");
     invalidTest("1d20 + * 5", "Multiple math");
+    invalidTest("oned20", "Number written as word");
   });
 });

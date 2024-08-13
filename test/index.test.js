@@ -1,4 +1,4 @@
-import roll from "../index.js";
+import roll from "../src/index";
 import chai from "chai";
 import spies from "chai-spies";
 const { assert, expect } = chai;

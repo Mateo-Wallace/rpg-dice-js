@@ -16,3 +16,8 @@ const roll = (userInput, diceSettings) => {
 };
 
 export default roll;
+
+// For CommonJS compatibility
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = roll;
+}

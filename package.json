@@ -1,13 +1,20 @@
 {
   "name": "@mateo-wallace/rpg-dice-js",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "description": "Npm package that allows users to roll dice with all math and various forms of response",
-  "main": "index.js",
-  "type": "module",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/index.js",
+      "import": "./dist/esm/index.js"
+    }
+  },
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
-    "test": "mocha"
+    "build:cjs": "babel src --out-dir dist/cjs --presets=@babel/preset-env",
+    "build:esm": "babel src --out-dir dist/esm --presets=@babel/preset-env --plugins=@babel/plugin-transform-modules-commonjs",
+    "build": "npm run build:cjs && npm run build:esm",
+    "test": "mocha --require @babel/register"
   },
   "repository": {
     "type": "git",
@@ -34,6 +41,10 @@
     "mathjs": "^11.6.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.24.8",
+    "@babel/core": "^7.25.2",
+    "@babel/preset-env": "^7.25.3",
+    "@babel/register": "^7.24.6",
     "chai": "^4",
     "chai-spies": "^1.1.0",
     "mocha": "^10.3.0"

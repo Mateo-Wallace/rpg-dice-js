@@ -3,13 +3,14 @@ import chai from "chai";
 import spies from "chai-spies";
 const { assert, expect } = chai;
 chai.use(spies);
+import crypto from "crypto";
 
 describe("Tests basic roll", () => {
   it("Should return the correct string without randomness", () => {
     function rollTest(input, expected, message, settings) {
-      chai.spy.on(Math, "floor", () => 0);
+      chai.spy.on(crypto, "randomInt", () => 1);
       const actual = roll(input, settings);
-      chai.spy.restore(Math);
+      chai.spy.restore(crypto);
       assert.strictEqual(actual.result, expected, message);
     }
 
@@ -50,9 +51,9 @@ describe("Tests basic roll", () => {
 
   it("Should have the correct values for the response object", () => {
     function objTest(input, expected, message) {
-      chai.spy.on(Math, "floor", () => 0);
+      chai.spy.on(crypto, "randomInt", () => 1);
       const actual = roll(input);
-      chai.spy.restore(Math);
+      chai.spy.restore(crypto);
       assert.deepEqual(actual, expected, message);
     }
 

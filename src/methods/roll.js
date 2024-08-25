@@ -1,4 +1,10 @@
 import { evaluate } from "mathjs";
+import crypto from "crypto";
+
+const rng = (sides) => {
+  if (sides === 1) return 1;
+  else return crypto.randomInt(1, sides);
+};
 
 const spaceNormalizer = (userInput, separators) => {
   let spaceNormalize = "";
@@ -16,7 +22,7 @@ const spaceNormalizer = (userInput, separators) => {
 };
 
 const diceNoInput = (defaultDie, isBoldCrit, boldWrapper) => {
-  const sum = Math.floor(Math.random() * defaultDie) + 1;
+  const sum = rng(defaultDie);
   const sumTotal = `${sum}`;
   const critTotal = `${sum * 2}`;
   const total = `d${defaultDie} (${
@@ -46,14 +52,11 @@ const diceInputMathLogic = (messageWords, separators) => {
       if (isNaN(sides) || isNaN(rolls)) throw new Error("Invalid Dice Input");
 
       if (rolls > 1) {
-        const rollResults = Array.from(
-          { length: rolls },
-          () => Math.floor(Math.random() * sides) + 1
-        );
+        const rollResults = Array.from({ length: rolls }, () => rng(sides));
         const sum = rollResults.reduce((a, b) => a + b);
         rollResults.push(sum);
         resultWords.push(rollResults);
-      } else resultWords.push(Math.floor(Math.random() * sides) + 1);
+      } else resultWords.push(rng(sides));
     } else if (separators.includes(word) || !isNaN(word / 1))
       resultWords.push(word);
     else throw new Error("Invalid Dice Input");

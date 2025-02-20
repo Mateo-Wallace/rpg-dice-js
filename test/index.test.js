@@ -49,6 +49,21 @@ describe("Tests basic roll", () => {
     }
   });
 
+  it("Should be able to roll all values in the range", () => {
+    function allRangeTest(input, max, message) {
+      const resultNoDice = roll(input).resultNoDiceArray[0];
+      const hasAllValues = true;
+      for (let i = 1; i <= max; i++) {
+        if (!resultNoDice.includes(i)) hasAllValues = false;
+      }
+      const expected = true;
+      assert.strictEqual(hasAllValues, expected, message);
+    }
+
+    allRangeTest("300d2", 2, "Min 1 Max 2");
+    allRangeTest("300d3", 3, "Min 1 Max 3");
+  });
+
   it("Should have the correct values for the response object", () => {
     function objTest(input, expected, message) {
       chai.spy.on(crypto, "randomInt", () => 1);

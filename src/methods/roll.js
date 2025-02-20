@@ -3,7 +3,7 @@ import crypto from "crypto";
 
 const rng = (sides) => {
   if (sides === 1) return 1;
-  else return crypto.randomInt(1, sides);
+  else return crypto.randomInt(1, sides + 1);
 };
 
 const spaceNormalizer = (userInput, separators) => {

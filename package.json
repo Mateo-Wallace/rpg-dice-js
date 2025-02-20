@@ -1,6 +1,6 @@
 {
   "name": "@mateo-wallace/rpg-dice-js",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Npm package that allows users to roll dice with all math and various forms of response",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
